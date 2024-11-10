@@ -1,0 +1,49 @@
+/* HomePage.css */
+
+.homepage-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 2rem;
+    background: linear-gradient(to right, #abcff0, #00f2fe);
+}
+
+.homepage-content {
+    max-width: 50%;
+    color: #ffffff;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+.homepage-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.homepage-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.homepage-content button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #ffffff;
+    color: #82c1f8;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.homepage-content button:hover {
+    transform: scale(1.05);
+}
+
+.homepage-image img {
+    max-width: 90%;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}

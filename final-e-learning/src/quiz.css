@@ -1,0 +1,146 @@
+
+
+.quiz-container {
+    width: 1200px; 
+    height: 100%;
+    margin: auto;
+    padding: 70px;
+    background: rgb(255, 255, 255); 
+    border-radius: 12px; 
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+    animation: fadeIn 1s;
+}
+
+
+.question-section h2 {
+    font-size: 2rem; 
+    color: #3e2723; 
+    font-family: 'Arial', sans-serif; 
+    transition: color 0.3s; 
+}
+
+.question-text {
+    font-size: 1.5rem; 
+    color: #4a148c; 
+    margin: 15px 0; 
+}
+
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+    gap: 15px; 
+}
+
+
+.option-btn {
+    padding: 15px; 
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; 
+    font-size: 1.2rem; 
+    font-weight: bold; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+
+.option-btn.correct {
+    background-color: #4CAF50; 
+}
+
+.option-btn.correct:hover {
+    background-color: #4CAF50; 
+}
+.option-btn.incorrect {
+    background-color: #dc3545; 
+}
+.option-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.option-btn.incorrect:hover {
+    background-color: #dc3545;
+    transform: scale(1.05);
+}
+
+
+
+.score-section {
+    text-align: center;
+    font-size: 1.5rem; 
+    color: #2e447d; 
+}
+
+
+.download-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #a78328c4;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s; 
+    font-size: 1.1rem; 
+}
+
+.download-btn:hover {
+    background-color: #218838; 
+}
+
+
+.correct-answer {
+    margin-top: 10px;
+    color: #d32f2f; 
+    font-weight: bold;
+    font-size: 1.2rem; 
+}
+
+
+.skip-btn {
+    background-color: #ffc107; 
+    font-family: 'Arial', sans-serif; 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    margin-top: 15px; 
+    cursor: pointer;
+    border: none;
+    color: white; 
+    transition: background-color 0.3s; 
+}
+
+.skip-btn:hover {
+    background-color: #e0a800; 
+}
+
+
+.quit-btn {
+    background-color: #dc3545; 
+    font-family: 'Arial', sans-serif; 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    margin-top: 15px; 
+    cursor: pointer;
+    border: none;
+    color: white; 
+    transition: background-color 0.3s; 
+}
+
+.quit-btn:hover {
+    background-color: #c82333; 
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

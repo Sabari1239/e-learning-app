@@ -1,0 +1,13 @@
+{
+  "name": "e-learning-platform",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm start",
+    "client": "cd final-e-learning && npm start",
+    "install-all": "npm install && cd backend && npm install && cd ../final-e-learning && npm install"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
