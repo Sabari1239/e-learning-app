@@ -1,20 +1,22 @@
+/* Container */
 .container {
   max-width: 800px;
   margin: 100px auto;
   padding: 20px;
   text-align: center;
-  border: 2px solid #4CAF50;
+  border: 2px solid #0088ff; /* Blue border */
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Continue Section */
 .continue-section {
-  background-color: #e7f9e7;
+  background-color: #e7f9ff; /* Light Blue background */
   padding: 20px;
   margin: 20px 0;
   border-radius: 8px;
-  border-left: 4px solid #4CAF50;
+  border-left: 4px solid #00b3ff; /* Blue left border */
 }
 
 .continue-section h2 {
@@ -27,8 +29,9 @@
   margin: 5px 0;
 }
 
+/* Continue Button */
 .continue-button {
-  background-color: #4CAF50;
+  background-color: #00c8ff; /* Blue button */
   color: white;
   border: none;
   padding: 15px 30px;
@@ -40,10 +43,11 @@
 }
 
 .continue-button:hover {
-  background-color: #45a049;
+  background-color: #0015ff; /* Darker Blue on hover */
   transform: translateY(-2px);
 }
 
+/* Language Selector */
 .language-selector {
   margin: 20px 0;
   display: flex;
@@ -52,8 +56,9 @@
   gap: 15px;
 }
 
+/* Language Button */
 .language-btn {
-  background-color: #4CAF50;
+  background-color: #0088ff; /* Blue background */
   color: white;
   border: none;
   padding: 15px 25px;
@@ -64,6 +69,28 @@
 }
 
 .language-btn:hover {
-  background-color: #45a049;
+  background-color: #0066cc; /* Darker Blue on hover */
   transform: translateY(-2px);
+}
+
+.language-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers the text and image horizontally */
+  padding: 10px;
+  background-color: #0095ff;
+  border: 1px solid #0053be;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.language-icon {
+  width: 40px;  /* Adjust the size of the icon */
+  height: 40px; /* Adjust the size of the icon */
+  margin-right: 8px; /* Adjust the margin between the icon and text */
+}
+
+.language-btn span {
+  display: inline-block;
+  text-align: center;
 }

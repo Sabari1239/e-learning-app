@@ -13,17 +13,30 @@ const PracticeContent = () => {
     const [practiceResult, setPracticeResult] = useState(null);
     const [currentLanguage, setCurrentLanguage] = useState('');
     const [completedTopics, setCompletedTopics] = useState([]);
+    const [dynamicTopics, setDynamicTopics] = useState({});
     const userId = localStorage.getItem('userId');
 
-    const topicKeys = Object.keys(allTopics);
+    const allAvailableTopics = { ...allTopics, ...dynamicTopics };
+    const topicKeys = Object.keys(allAvailableTopics);
     const currentIndex = topicKeys.indexOf(decodedTopic);
-    const topicContent = allTopics[decodedTopic];
+    const topicContent = allAvailableTopics[decodedTopic];
 
     useEffect(() => {
-        const language = decodedTopic.split(' ')[0];
-        setCurrentLanguage(language);
-        fetchProgress(language);
+        const fetchAllContent = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/api/topics/all');
+                const dynamicContent = await response.json();
+                console.log('Dynamic Content:', dynamicContent);
+                console.log('All Topics:', allTopics);
+                console.log('Merged Topics:', { ...allTopics, ...dynamicContent });
+                setDynamicTopics(dynamicContent);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+        fetchAllContent();
     }, [decodedTopic]);
+    
 
     const fetchProgress = async (language) => {
         try {
@@ -57,19 +70,22 @@ const PracticeContent = () => {
     const handlePractice = () => setShowPractice(true);
 
     const handlePracticeSubmit = async () => {
-        const isCorrect = practiceAnswer.toLowerCase() === topicContent.practiceAnswer?.toLowerCase();
+        const currentExercise = dynamicTopics[decodedTopic]?.exercises?.[0] || topicContent?.exercises?.[0];
+        const correctAnswer = currentExercise?.answer || topicContent?.practiceAnswer;
+        const isCorrect = practiceAnswer.toLowerCase() === correctAnswer?.toLowerCase();
+        
         const exerciseResult = {
             completed: true,
             score: isCorrect ? 100 : 0
         };
-        
+
         setPracticeResult({
             correct: isCorrect,
             message: isCorrect ? 'Correct! Well done!' : 'Try again!'
         });
 
         await updateProgress(exerciseResult);
-        
+
         setTimeout(() => {
             setPracticeResult(null);
             setShowPractice(false);
@@ -114,20 +130,26 @@ const PracticeContent = () => {
             <div className="main-content">
                 <div className="theory-section">
                     <h3>Theory</h3>
-                    <div className="section-content">{topicContent?.content}</div>
+                    <div className="section-content">
+                        {topicContent?.content || dynamicTopics[decodedTopic]?.content}
+                    </div>
                 </div>
 
                 <div className="syntax-section">
                     <h3>Syntax</h3>
-                    <div className="section-content">{topicContent?.syntax}</div>
+                    <div className="section-content">
+                        {topicContent?.syntax || dynamicTopics[decodedTopic]?.code}
+                    </div>
                 </div>
 
                 <div className="practice-section">
                     <h3>Practice Exercise</h3>
                     {!showPractice ? (
                         <div className="section-content">
-                            {topicContent?.questions.map((question, index) => (
-                                <div key={index} className="question-item">{question}</div>
+                            {(topicContent?.questions || dynamicTopics[decodedTopic]?.exercises)?.map((question, index) => (
+                                <div key={index} className="question-item">
+                                    {question.question || question}
+                                </div>
                             ))}
                             <button className="practice-button" onClick={handlePractice}>
                                 Start Practice

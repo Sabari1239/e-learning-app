@@ -19,7 +19,8 @@ const Quiz = () => {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
 
     const handleQuizEnd = async () => {
-        const userScore = Math.round((score / questions.length) * 100);
+        const questionsAttempted = currentQuestionIndex + 1;
+        const userScore = Math.round((score / questionsAttempted) * 100);
         const userId = localStorage.getItem('userId');
         
         if (!userId) {
@@ -36,7 +37,7 @@ const Quiz = () => {
                 body: JSON.stringify({
                     userId,
                     score: userScore,
-                    totalQuestions: questions.length,
+                    totalQuestions: questionsAttempted,
                     category: 'programming'
                 })
             });
@@ -51,7 +52,36 @@ const Quiz = () => {
             console.error('Error submitting quiz score:', error);
         }
     };
+    const handleQuitQuiz = async () => {
+        const questionsAttempted = currentQuestionIndex + 1;
+        const userScore = Math.round((score / questionsAttempted) * 100);
+        const userId = localStorage.getItem('userId');
+        
+        if (userId) {
+            try {
+                await fetch('http://localhost:5000/api/scores', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        userId,
+                        score: userScore,
+                        totalQuestions: questionsAttempted,
+                        category: 'programming'
+                    })
+                });
+            } catch (error) {
+                console.error('Error submitting quiz score:', error);
+            }
+        }
+        
+        setShowScore(true); // Show the score summary first
+        localStorage.setItem('userScore', userScore);
+    };
     
+
+
 
     const handleAnswerClick = useCallback((index) => {
         if (index !== null) {
@@ -120,13 +150,15 @@ const Quiz = () => {
     }
 
     if (showScore) {
+        const questionsAttempted = currentQuestionIndex + 1;
+        const finalScore = Math.round((score / questionsAttempted) * 100);
         return (
             <div className="quiz-container">
                 <div className="score-section">
                     <h2>Quiz Completed!</h2>
-                    <p>Your Score: {score} out of {questions.length}</p>
-                    <p>Percentage: {Math.round((score / questions.length) * 100)}%</p>
-                    <p>Correct Answers: {totalCorrect}</p>
+                    <p>Questions Attempted: {questionsAttempted} out of {questions.length}</p>
+                    <p>Correct Answers: {score}</p>
+                    <p>Your Score: {finalScore}%</p>
                     <button onClick={() => navigate('/leaderboard')} className="view-leaderboard-button">
                         View Leaderboard
                     </button>
@@ -169,7 +201,7 @@ const Quiz = () => {
             <button className="skip-btn" onClick={() => handleAnswerClick(null)}>
                 Skip Question
             </button>
-            <button className="quit-btn" onClick={() => navigate('/home')}>
+            <button className="quit-btn" onClick={handleQuitQuiz}>
                 Quit Quiz
             </button>
         </div>

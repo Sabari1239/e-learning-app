@@ -6,29 +6,32 @@ const LoginPage = () => {
     const [isRegistering, setIsRegistering] = useState(false);
     const navigate = useNavigate();
 
-    const handleLoginSubmit = async (event) => {
-        event.preventDefault();
-        const email = event.target.loginEmail.value;
-        const password = event.target.loginPassword.value;
+    // Add role to localStorage after successful login
+const handleLoginSubmit = async (event) => {
+    event.preventDefault();
+    const email = event.target.loginEmail.value;
+    const password = event.target.loginPassword.value;
 
-        try {
-            const response = await fetch('http://localhost:5000/api/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
-            });
+    try {
+        const response = await fetch('http://localhost:5000/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
 
-            const data = await response.json();
-            if (response.ok) {
-                localStorage.setItem('userId', data.userId);
-                navigate('/home');
-            } else {
-                alert(data.error || 'Login failed');
-            }
-        } catch (error) {
-            alert('Error logging in');
+        const data = await response.json();
+        if (response.ok) {
+            localStorage.setItem('userId', data.userId);
+            localStorage.setItem('userRole', data.role); // Add this line
+            localStorage.setItem('adminToken', data.token); // Add this for admin access
+            navigate('/home');
+        } else {
+            alert(data.error || 'Login failed');
         }
-    };
+    } catch (error) {
+        alert('Error logging in');
+    }
+};
 
     const handleRegisterSubmit = async (event) => {
         event.preventDefault();

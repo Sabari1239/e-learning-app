@@ -1,49 +1,96 @@
-/* HomePage.css */
+/* Reset and base styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #e6fbfa, #f7fcfb); /* Light gradient */
+    color: #2c3e50;
+}
+
+/* Main wrapper with minimal padding and flexible spacing */
 .homepage-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 50px;
     min-height: 100vh;
-    padding: 2rem;
-    background: linear-gradient(to right, #abcff0, #00f2fe);
+    background: #f5f7fa;
+    gap: 2rem;
 }
 
+/* Content area styling */
 .homepage-content {
-    max-width: 50%;
-    color: #ffffff;
-    text-align: left;
-    font-family: Arial, sans-serif;
+    flex: 1;
+    padding: 40px;
 }
 
 .homepage-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
+    font-size: 3em;
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.2;
 }
 
 .homepage-content p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+    font-size: 1.2em;
+    color: #34495e;
+    margin-bottom: 40px;
+    line-height: 1.6;
 }
 
-.homepage-content button {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    background-color: #ffffff;
-    color: #82c1f8;
+/* Login button container */
+.login-options {
+    display: flex;
+    gap: 20px;
+}
+
+/* Button styling with subtle transitions and modern colors */
+.user-login-btn, .admin-login-btn {
+    padding: 15px 30px;
+    font-size: 1.1em;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
 }
 
-.homepage-content button:hover {
-    transform: scale(1.05);
+.user-login-btn {
+    background: #4af0df;
+    color: #2c3e50;
+}
+
+.admin-login-btn {
+    background: #2c3e50;
+    color: white;
+}
+
+/* Button hover effect with minimal animation */
+.user-login-btn:hover, .admin-login-btn:hover {
+    transform: translateY(-2px);
+    background-color: #3cd7c4; /* Slight color change on hover */
+}
+
+/* Image container with center alignment */
+.homepage-image {
+    flex: 1;
+    text-align: center;
 }
 
 .homepage-image img {
-    max-width: 90%;
+    max-width: 100%;
+    height: auto;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Subtle hover effect on image */
+.homepage-image img:hover {
+    transform: scale(1.02);
 }

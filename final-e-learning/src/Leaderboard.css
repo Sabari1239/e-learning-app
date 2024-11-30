@@ -17,7 +17,7 @@
 
 .trophy-icon {
     font-size: 2.5em;
-    color: #ffd700;
+    color: #4af0df; /* Sky Blue color */
     animation: shine 2s infinite;
 }
 
@@ -42,31 +42,33 @@
 }
 
 .leaderboard-table th {
-    background-color: #4CAF50;
+    background-color: #4af0df; /* Sky Blue color */
     color: white;
     font-weight: bold;
 }
+
 .header-content {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
 }
+
 .rank-icon {
     font-size: 1.5em;
     margin-right: 5px;
 }
 
 .gold {
-    color: #ffd700;
+    color: #4af0df; /* Sky Blue color for top position */
 }
 
 .silver {
-    color: #c0c0c0;
+    color: #82d8d4; /* Light Sky Blue for second position */
 }
 
 .bronze {
-    color: #cd7f32;
+    color: #a0d8d3; /* A slightly darker shade of sky blue for third place */
 }
 
 .top-three {
@@ -74,15 +76,15 @@
 }
 
 .top-three:nth-child(1) {
-    background-color: rgba(255, 215, 0, 0.1);
+    background-color: rgba(74, 240, 223, 0.1); /* Light Sky Blue for top 1 */
 }
 
 .top-three:nth-child(2) {
-    background-color: rgba(192, 192, 192, 0.1);
+    background-color: rgba(130, 216, 212, 0.1); /* Light Sky Blue for second place */
 }
 
 .top-three:nth-child(3) {
-    background-color: rgba(205, 127, 50, 0.1);
+    background-color: rgba(160, 216, 211, 0.1); /* A slightly darker shade of Sky Blue for third place */
 }
 
 .leaderboard-table tr:hover {
@@ -102,7 +104,7 @@
         margin: 20px;
         padding: 10px;
     }
-    
+
     .leaderboard-table th,
     .leaderboard-table td {
         padding: 10px 5px;

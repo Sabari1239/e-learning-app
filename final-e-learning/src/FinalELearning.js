@@ -1,11 +1,9 @@
 // src/HomePage.js
 import React from 'react';
 import './FinalELearning.css'; 
-import './ProfileDashboard';
-import './PracticeContent';
 
 const FinalELearning = () => {
-  
+
   const handleScroll = (e) => {
     e.preventDefault();
     const targetSection = document.querySelector(e.target.getAttribute('href'));
@@ -16,34 +14,34 @@ const FinalELearning = () => {
   };
 
   return (
-    <div>
-
+    <div className="final-elearning-container">
       {/* Main Content Area */}
       <main className="main-content">
         <section className="intro">
-          <h1>Welcome to Final E Learning</h1>
-          <p>Explore our programming courses and track your progress.</p>
+          <h1 className="intro-title">Welcome to Our E-Learning Platform</h1>
+          <p className="intro-text">Explore our programming courses and track your progress in a fun and engaging way.</p>
         </section>
 
-        {/* Additional Sections (Placeholder) */}
+        {/* Course, Leaderboard, Quiz, Dashboard */}
         <section id="my-course" className="section">
-          <h2>My Course</h2>
-          <p>Details about your courses will be shown here.</p>
+          <h2 className="section-title">My Course</h2>
+          <p className="section-text">Find detailed information about your courses here.</p>
         </section>
         <section id="leaderboard" className="section">
-          <h2>Leaderboard</h2>
-          <p>Top performers will be displayed here.</p>
+          <h2 className="section-title">Leaderboard</h2>
+          <p className="section-text">Check the top performers and track your ranking.</p>
         </section>
         <section id="quiz" className="section">
-          <h2>Quiz</h2>
-          <p>Take quizzes to test your knowledge.</p>
+          <h2 className="section-title">Quiz</h2>
+          <p className="section-text">Test your knowledge with interactive quizzes.</p>
         </section>
         <section id="dashboard" className="section">
-          <h2>Dashboard</h2>
-          <p>Your progress and statistics will be shown here.</p>
+          <h2 className="section-title">Dashboard</h2>
+          <p className="section-text">Your progress and stats are tracked here.</p>
         </section>
-        
       </main>
+
+     
     </div>
   );
 };

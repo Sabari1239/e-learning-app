@@ -68,13 +68,29 @@ const Course = () => {
           </button>
         </div>
       )}
-      <div className="language-selector">
-        <button className="language-btn" onClick={() => showContent('python')}>Python</button>
-        <button className="language-btn" onClick={() => showContent('c')}>C</button>
-        <button className="language-btn" onClick={() => showContent('cpp')}>C++</button>
-        <button className="language-btn" onClick={() => showContent('java')}>Java</button>
-        <button className="language-btn" onClick={() => showContent('javascript')}>JavaScript</button>
-      </div>
+    <div className="language-selector">
+  <button className="language-btn" onClick={() => showContent('python')}>
+    <img src="https://cdn-icons-png.flaticon.com/128/3098/3098090.png" alt="   Python" className="language-icon" />
+    Python
+  </button>
+  <button className="language-btn" onClick={() => showContent('c')}>
+    <img src="https://cdn-icons-png.flaticon.com/128/3097/3097008.png" alt="   C" className="language-icon" />
+    C
+  </button>
+  <button className="language-btn" onClick={() => showContent('cpp')}>
+    <img src="https://cdn-icons-png.flaticon.com/128/7743/7743681.png" alt="C++" className="language-icon" />
+    C++
+  </button>
+  <button className="language-btn" onClick={() => showContent('java')}>
+    <img src="https://cdn-icons-png.flaticon.com/128/3291/3291669.png" alt="Java" className="language-icon" />
+    Java
+  </button>
+  <button className="language-btn" onClick={() => showContent('javascript')}>
+    <img src="https://cdn-icons-png.flaticon.com/128/1199/1199124.png" alt="JavaScript" className="language-icon" />
+    JavaScript
+  </button>
+</div>
+
       <div id="content" className="content"></div>
     </div>
   );

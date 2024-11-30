@@ -1,0 +1,132 @@
+/* Center alignment for the form without a background container */
+.admin-login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Form container with smooth shadow, rounded edges, and slight scale animation */
+.admin-login-form {
+    position: relative;
+    background: #ffffff;
+    width: 380px;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: scale(0.9);
+    animation: fadeInScale 0.6s ease-out forwards;
+    transition: transform 0.3s ease;
+}
+
+.admin-login-form:hover {
+    transform: scale(1);
+}
+
+/* Title styling with bold text and subtle spacing */
+.admin-login-form h2 {
+    color: #34495e;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* Input fields with smooth border transitions, shadow effect on focus */
+.admin-login-form input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    border: 1px solid #c6d0de;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #f9fbfd;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+}
+
+.admin-login-form input:focus {
+    border-color: #5dade2;
+    box-shadow: 0 4px 12px rgba(93, 173, 226, 0.2);
+}
+
+/* Button styling with gradient background, hover effects, and slight elevation */
+.admin-login-form button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #3498db, #5dade2);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.admin-login-form button:hover {
+    background: linear-gradient(135deg, #2e86c1, #2980b9);
+    box-shadow: 0 8px 20px rgba(41, 128, 185, 0.3);
+}
+
+.admin-login-form button:active {
+    transform: translateY(2px);
+}
+
+/* Fade-in and scale-up animation for the form */
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Fade-in placeholder animation for input fields */
+@keyframes fadeInPlaceholder {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.admin-login-form input::placeholder {
+    color: #b0b7c3;
+    opacity: 1;
+    animation: fadeInPlaceholder 0.8s ease-out;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 480px) {
+    .admin-login-form {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .admin-login-form h2 {
+        font-size: 24px;
+    }
+    
+    .admin-login-form input,
+    .admin-login-form button {
+        padding: 10px;
+    }
+}
+/* Back button styling */
+/* Back button styling */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: transparent;
+    border: none;
+    color: #2c3e50;
+    font-size: 14px; /* Smaller font size */
+    cursor: pointer;
+    padding: 5px 10px; /* Reduced padding */
+    font-weight: 500; /* Lighter font weight */
+    transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    color: #3498db;
+}

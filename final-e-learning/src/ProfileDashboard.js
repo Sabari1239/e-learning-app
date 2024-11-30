@@ -96,7 +96,7 @@ const ProfileDashboard = () => {
                 userData?.completedCourses?.length || 0,
                 (userData?.progress?.length || 0) - (userData?.completedCourses?.length || 0)
             ],
-            backgroundColor: ['#4CAF50', 'rgb(0, 128, 0)']
+            backgroundColor: ['rgb(137, 207, 240)', 'rgb(0, 71, 171)']
         }]
     };
 
@@ -105,8 +105,8 @@ const ProfileDashboard = () => {
         datasets: [{
             label: 'Topics Completed',
             data: userData?.progress?.map(p => p.completedTopics.length) || [0, 0, 0, 0, 0],
-            backgroundColor: 'rgb(124,196,124)',
-            borderColor: 'rgb(0, 128, 0)',
+            backgroundColor: 'rgb(137, 207, 240)',
+            borderColor: 'rgb(0, 71, 171)',
             borderWidth: 2
         }]
     };
@@ -186,18 +186,18 @@ const ProfileDashboard = () => {
 const styles = {
     dashboard: { display: 'flex', maxWidth: '900px', margin: 'auto', backgroundColor: 'white', borderRadius: '15px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)', padding: '20px' },
     profile: { textAlign: 'center', flex: 1, padding: '20px' },
-    profilePic: { width: '150px', height: '150px', borderRadius: '50%', border: '4px solid #4CAF50', cursor: 'pointer', transition: 'transform 0.4s' },
+    profilePic: { width: '150px', height: '150px', borderRadius: '50%', border: '4px solid #0088ff', cursor: 'pointer', transition: 'transform 0.4s' },
     name: { fontSize: '24px', margin: '10px 0 5px' },
     email: { color: 'gray', fontSize: '16px' },
     phone: { color: 'gray', fontSize: '16px' },
-    editButton: { marginTop: '10px', padding: '5px 10px', border: 'none', borderRadius: '5px', backgroundColor: '#4CAF50', color: 'white', cursor: 'pointer', transition: 'background-color 0.3s, transform 0.2s' },
-    downloadButton: { marginTop: '10px', padding: '10px', border: 'none', borderRadius: '5px', backgroundColor: '#4CAF50', color: 'white', cursor: 'pointer', transition: 'background-color 0.3s' },
+    editButton: { marginTop: '10px', padding: '5px 10px', border: 'none', borderRadius: '5px', backgroundColor: '#0088ff', color: 'white', cursor: 'pointer', transition: 'background-color 0.3s, transform 0.2s' },
+    downloadButton: { marginTop: '10px', padding: '10px', border: 'none', borderRadius: '5px', backgroundColor: '#0088ff', color: 'white', cursor: 'pointer', transition: 'background-color 0.3s' },
     charts: { flex: 2, display: 'flex', flexDirection: 'column', gap: '20px', paddingLeft: '20px' },
     chartContainer: { background: '#f9f9f9', borderRadius: '10px', padding: '20px', boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)' },
     pieChartContainer: { width: '200px', height: '200px', margin: 'auto' },
     editContainer: { display: 'flex', flexDirection: 'column', position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: 'white', padding: '20px', borderRadius: '10px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)', zIndex: 1000 },
     input: { margin: '10px 0', padding: '10px', borderRadius: '5px', border: '1px solid #ccc' },
-    saveButton: { backgroundColor: '#4CAF50', color: 'white', padding: '10px', border: 'none', borderRadius: '5px', cursor: 'pointer' },
+    saveButton: { backgroundColor: '#0088ff', color: 'white', padding: '10px', border: 'none', borderRadius: '5px', cursor: 'pointer' },
     cancelButton: { backgroundColor: '#f44336', color: 'white', padding: '10px', border: 'none', borderRadius: '5px', cursor: 'pointer', marginLeft: '10px' },
     certificateContainer: {
         display: 'flex',
@@ -215,7 +215,7 @@ const styles = {
     },
     certificate: {
         padding: '15px',
-        border: '5px solid #4CAF50',
+        border: '5px solid #0088ff', /* Blue remains */
         borderRadius: '10px',
         textAlign: 'center',
         width: '450px',
@@ -231,7 +231,7 @@ const styles = {
         right: '20px'
     },
     certificateTitle: {
-        color: '#4CAF50',
+        color: '#0088ff', /* Blue remains */
         fontSize: '25px',
         margin: '10px 0'
     },
@@ -253,5 +253,6 @@ const styles = {
         marginTop: '20px'
     }
 };
+
 
 export default ProfileDashboard;

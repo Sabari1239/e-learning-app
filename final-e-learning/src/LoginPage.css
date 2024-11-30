@@ -1,3 +1,4 @@
+/* Reset and base styling */
 * {
     margin: 0;
     padding: 0;
@@ -10,40 +11,38 @@ body {
     align-items: center;
     min-height: 100vh;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #a8edea, #fed6e3);
+    background: linear-gradient(135deg, #a8edea, #fed6e3); /* Light gradient */
 }
 
+/* Main wrapper with center alignment and smooth background */
 .main-wrapper {
     display: flex;
     align-items: center;
     gap: 2rem;
     background: #fff;
     padding: 3rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-in-out;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Removed animation for a cleaner look */
 }
 
+/* Form container with subtle spacing */
 .form-container {
     text-align: center;
     padding: 2rem;
-    width: 300px;
+    width: 100%;
+    max-width: 350px;
 }
 
-.animate {
-    animation: slideIn 1s ease;
-}
-
-@keyframes slideIn {
-    from { transform: translateX(-50px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
+/* Heading styling */
 h2 {
     color: #333;
     margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 600;
 }
 
+/* Input and button styling */
 input, button {
     width: 100%;
     padding: 0.8rem;
@@ -54,42 +53,51 @@ input, button {
     transition: all 0.3s ease;
 }
 
+/* Focused input effect */
 input:focus {
     outline: none;
-    border-color: #4CAF50;
-    box-shadow: 0 0 5px rgba(255, 126, 95, 0.5);
+    border-color: #0099ff; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 153, 255, 0.5); /* Blue glow */
 }
 
+/* Button styling with smooth hover transition */
 button {
-    background-color:#4CAF50;
+    background-color: #0099ff; /* Blue button background */
     color: white;
     font-weight: bold;
     cursor: pointer;
     border: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 10px;
 }
 
+/* Button hover effect with subtle animation */
 button:hover {
-    background-color:#4CAF50;
-    transform: translateY(-3px);
-    transform: scale(1.05);
+    background-color: #006bb3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight elevation effect */
 }
 
+/* Anchor link styling with clean hover effect */
 a {
-    color: #4CAF50;
+    color: #0099ff; /* Blue links */
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 a:hover {
+    color: #006bb3; /* Darker blue on hover */
     text-decoration: underline;
 }
 
+/* Paragraph styling */
 p {
     margin-top: 1rem;
     color: #666;
+    font-size: 0.9rem;
 }
 
+/* Image container styling */
 .image-container {
     display: flex;
     justify-content: center;
@@ -97,14 +105,15 @@ p {
     max-width: 400px;
 }
 
+/* Image styling with smooth fade-in */
 .image-container img {
     width: 100%;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1.5s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* Hover effect on image */
+.image-container img:hover {
+    transform: scale(1.02);
 }
